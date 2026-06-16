@@ -62,13 +62,7 @@ h1 {
 const startDate = new Date("2026-03-10");
 const today = new Date();
 
-startDate.setHours(0, 0, 0, 0);
-today.setHours(0, 0, 0, 0);
-
-const diffTime = today - startDate;
-const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+const diffTime = today.getTime() - startDate.getTime();
+const diffDays = Math.floor(diffTime / 86400000) + 1;
 
 document.getElementById("day").textContent = "DAY " + diffDays;
-</script>
-</body>
-</html>
