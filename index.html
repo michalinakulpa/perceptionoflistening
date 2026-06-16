@@ -46,6 +46,11 @@ h1 {
   font-size: clamp(1rem, 4vw, 1.6rem);
   letter-spacing: 0.04em;
 }
+
+#track {
+  display: block;
+  margin-top: 18px;
+}
 </style>
 </head>
 
@@ -57,7 +62,10 @@ h1 {
 
   <div id="project-label">OF THE PROJECT</div>
 
-  <div id="nowplaying">NOW PLAYING: loading...</div>
+  <div id="nowplaying">
+    <span>CURRENTLY LISTENING</span>
+    <span id="track">loading...</span>
+  </div>
 </main>
 
 <script>
@@ -77,11 +85,10 @@ async function getNowPlaying() {
     const response = await fetch("/api/now-playing");
     const data = await response.json();
 
-    document.getElementById("nowplaying").textContent =
-      data.text || "NOW PLAYING: unavailable";
+    document.getElementById("track").textContent =
+      data.track || "unavailable";
   } catch (error) {
-    document.getElementById("nowplaying").textContent =
-      "NOW PLAYING: unavailable";
+    document.getElementById("track").textContent = "unavailable";
   }
 }
 
