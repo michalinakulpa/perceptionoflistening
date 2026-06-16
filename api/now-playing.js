@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
   if (response.status === 204) {
     return res.json({
-      label: "CURRENTLY LISTENING",
+      label: "LISTENING NOW",
       track: "nothing right now"
     });
   }
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
 
   if (!data.item) {
     return res.json({
-      label: "CURRENTLY LISTENING",
+      label: "LISTENING NOW",
       track: "nothing right now"
     });
   }
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
   const artist = data.item.artists.map(a => a.name).join(", ");
 
   return res.json({
-    label: "CURRENTLY LISTENING",
+    label: "LISTENING NOW",
     track: `${title} — ${artist}`
   });
 }
