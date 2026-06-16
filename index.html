@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +30,20 @@ main {
 h1 {
   font-size: clamp(1.3rem, 6vw, 4rem);
   letter-spacing: 0.08em;
-  margin: 0 0 40px;
+  margin: 0 0 50px;
   white-space: nowrap;
 }
 
 #day {
-  font-size: clamp(1.5rem, 5vw, 2.8rem);
-  margin-bottom: 40px;
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 5px;
+}
+
+#project-label {
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+  margin-bottom: 50px;
 }
 
 #nowplaying {
@@ -50,13 +56,19 @@ h1 {
 <body>
 
 <main>
-  <h1>PERCEPTION OF LISTENING</h1>
 
-  <div id="day"></div>
+<h1>PERCEPTION OF LISTENING</h1>
 
-  <div id="nowplaying">
-    NOW PLAYING: fearless4
-  </div>
+<div id="day"></div>
+
+<div id="project-label">
+OF THE PROJECT
+</div>
+
+<div id="nowplaying">
+NOW PLAYING: fearless5
+</div>
+
 </main>
 
 <script>
