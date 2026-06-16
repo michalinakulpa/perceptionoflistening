@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,11 +33,10 @@ h1 {
   font-size: clamp(2rem, 8vw, 5rem);
   letter-spacing: 0.08em;
   margin: 0 0 40px;
-  word-break: normal;
 }
 
 #day {
-  font-size: clamp(1.4rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.8rem);
   margin-bottom: 40px;
 }
 
@@ -48,6 +48,7 @@ h1 {
 </head>
 
 <body>
+
 <main>
   <h1>PERCEPTION OF LISTENING</h1>
 
@@ -59,12 +60,17 @@ h1 {
 </main>
 
 <script>
-const startDate = new Date("2026-03-10");
+const startDate = new Date(2026, 2, 10);
 const today = new Date();
 
-const diffTime = today.getTime() - startDate.getTime();
-const diffDays = Math.floor(diffTime / 86400000) + 1;
+startDate.setHours(0, 0, 0, 0);
+today.setHours(0, 0, 0, 0);
+
+const oneDay = 1000 * 60 * 60 * 24;
+const diffDays = Math.round((today - startDate) / oneDay) + 1;
 
 document.getElementById("day").textContent = "DAY " + diffDays;
+</script>
 
-<div id="debug"></div>
+</body>
+</html>
