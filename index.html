@@ -1,44 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perception of Listening</title>
 
 <style>
-body{
-    background:#000;
-    color:#fff;
-    font-family:Arial, sans-serif;
-    text-align:center;
-    margin:0;
-    padding-top:100px;
+* {
+  box-sizing: border-box;
 }
 
-h1{
-    font-size:48px;
-    margin-bottom:40px;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
 }
 
-h2{
-    font-size:32px;
-    margin-bottom:40px;
+main {
+  width: 100%;
+  max-width: 900px;
 }
 
-.now-playing{
-    font-size:24px;
+h1 {
+  font-size: clamp(2rem, 8vw, 5rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 40px;
+  word-break: normal;
+}
+
+#day {
+  font-size: clamp(1.4rem, 5vw, 2.5rem);
+  margin-bottom: 40px;
+}
+
+#nowplaying {
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  letter-spacing: 0.04em;
 }
 </style>
-
 </head>
+
 <body>
+<main>
+  <h1>PERCEPTION OF LISTENING</h1>
 
-<h1>PERCEPTION OF LISTENING</h1>
+  <div id="day"></div>
 
-<h2>DAY 99</h2>
+  <div id="nowplaying">
+    NOW PLAYING: SLOW IT DOWN
+  </div>
+</main>
 
-<div class="now-playing">
-NOW PLAYING: SLOW IT DOWN
-</div>
+<script>
+const startDate = new Date(2026, 2, 10);
+const today = new Date();
 
+startDate.setHours(0, 0, 0, 0);
+today.setHours(0, 0, 0, 0);
+
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+document.getElementById("day").textContent = "DAY " + diffDays;
+</script>
 </body>
 </html>
