@@ -40,7 +40,7 @@ export default async function handler(req, res) {
 
   if (response.status === 204) {
     return res.json({
-      text: "NOW PLAYING: nothing right now"
+      text: `CURRENTLY LISTENING: nothing right now"
     });
   }
 
