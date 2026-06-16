@@ -51,6 +51,13 @@ h1 {
   display: block;
   margin-top: 18px;
 }
+
+#source {
+  margin-top: 20px;
+  font-size: clamp(0.65rem, 2vw, 0.85rem);
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
 </style>
 </head>
 
@@ -63,9 +70,11 @@ h1 {
   <div id="project-label">OF THE PROJECT</div>
 
   <div id="nowplaying">
-    <span>LISTENING NOW:</span>
+    <span id="label">LISTENING NOW:</span>
     <span id="track">loading...</span>
   </div>
+
+  <div id="source">live listening data from Spotify</div>
 </main>
 
 <script>
@@ -84,6 +93,9 @@ async function getNowPlaying() {
   try {
     const response = await fetch("/api/now-playing");
     const data = await response.json();
+
+    document.getElementById("label").textContent =
+      data.label || "LISTENING NOW:";
 
     document.getElementById("track").textContent =
       data.track || "unavailable";
