@@ -6,9 +6,7 @@
 <title>Perception of Listening</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -23,9 +21,7 @@ body {
   padding: 24px;
 }
 
-main {
-  width: 100%;
-}
+main { width: 100%; }
 
 h1 {
   font-size: clamp(1.3rem, 6vw, 4rem);
@@ -50,25 +46,30 @@ h1 {
   font-size: clamp(1rem, 4vw, 1.6rem);
   letter-spacing: 0.04em;
 }
+
+a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  display: inline-block;
+  margin-top: 40px;
+  letter-spacing: 0.08em;
+}
 </style>
 </head>
 
 <body>
-
 <main>
+  <h1>PERCEPTION OF LISTENING</h1>
 
-<h1>PERCEPTION OF LISTENING</h1>
+  <div id="day"></div>
 
-<div id="day"></div>
+  <div id="project-label">OF THE PROJECT</div>
 
-<div id="project-label">
-OF THE PROJECT
-</div>
+  <div id="nowplaying">NOW PLAYING: loading...</div>
 
-<div id="nowplaying">
-NOW PLAYING: fearless5
-</div>
-
+  <a id="login" href="/api/login">CONNECT SPOTIFY</a>
 </main>
 
 <script>
@@ -82,6 +83,51 @@ const oneDay = 1000 * 60 * 60 * 24;
 const diffDays = Math.round((today - startDate) / oneDay) + 1;
 
 document.getElementById("day").textContent = "DAY " + diffDays;
+
+const params = new URLSearchParams(window.location.search);
+const token = params.get("token");
+
+async function getNowPlaying() {
+  if (!token) {
+    document.getElementById("nowplaying").textContent =
+      "NOW PLAYING: connect Spotify";
+    return;
+  }
+
+  document.getElementById("login").style.display = "none";
+
+  const response = await fetch(
+    "https://api.spotify.com/v1/me/player/currently-playing",
+    {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    }
+  );
+
+  if (response.status === 204) {
+    document.getElementById("nowplaying").textContent =
+      "NOW PLAYING: nothing right now";
+    return;
+  }
+
+  const data = await response.json();
+
+  if (!data.item) {
+    document.getElementById("nowplaying").textContent =
+      "NOW PLAYING: nothing right now";
+    return;
+  }
+
+  const title = data.item.name;
+  const artist = data.item.artists.map(a => a.name).join(", ");
+
+  document.getElementById("nowplaying").textContent =
+    "NOW PLAYING: " + title + " — " + artist;
+}
+
+getNowPlaying();
+setInterval(getNowPlaying, 30000);
 </script>
 
 </body>
