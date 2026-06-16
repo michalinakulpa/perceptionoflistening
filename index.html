@@ -60,14 +60,17 @@ h1 {
   margin-bottom: 60px;
 }
 
-#nowplaying {
-  font-size: clamp(1rem, 4vw, 1.6rem);
-  letter-spacing: 0.04em;
+#label {
+  display: block;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  letter-spacing: 0.2em;
+  opacity: 0.8;
 }
 
 #track {
   display: block;
   margin-top: 18px;
+  font-size: clamp(1rem, 4vw, 1.6rem);
 }
 
 #source {
@@ -100,7 +103,7 @@ h1 {
   <div id="project-label">OF THE PROJECT</div>
 
   <div id="nowplaying">
-    <span id="label">LISTENING NOW:</span>
+    <span id="label">LISTENING NOW</span>
     <span id="track">loading...</span>
   </div>
 
@@ -126,7 +129,7 @@ async function getNowPlaying() {
     const data = await response.json();
 
     document.getElementById("label").textContent =
-      data.label || "LISTENING NOW:";
+      data.label || "LISTENING NOW";
 
     document.getElementById("track").textContent =
       data.track || "unavailable";
