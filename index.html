@@ -23,19 +23,19 @@ body {
 
 main { width: 100%; }
 
+#description {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  line-height: 1.8;
+  opacity: 0.65;
+}
+
 h1 {
   font-size: clamp(1.3rem, 6vw, 4rem);
   letter-spacing: 0.08em;
   margin: 0 0 50px;
   white-space: nowrap;
-}
-
-#description {
-  max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
-  line-height: 1.7;
-  opacity: 0.8;
 }
 
 #day {
@@ -71,13 +71,14 @@ h1 {
 
 <body>
 <main>
-  <h1>PERCEPTION OF LISTENING</h1>
 
   <div id="description">
     A long-duration art project exploring time and perception through continuous listening to the music of a single band since March 10, 2026.
     <br><br>
     120,000 minutes reached on June 12, 2026.
   </div>
+
+  <h1>PERCEPTION OF LISTENING</h1>
 
   <div id="day"></div>
 
@@ -89,6 +90,7 @@ h1 {
   </div>
 
   <div id="source">live listening data from Spotify</div>
+
 </main>
 
 <script>
