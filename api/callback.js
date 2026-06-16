@@ -31,11 +31,9 @@ export default async function handler(req, res) {
 
   const data = await response.json();
 
-  if (!data.access_token) {
-    return res.status(500).json(data);
-  }
+if (!data.access_token) {
+  return res.status(500).json(data);
+}
 
-  res.redirect(
-    "/?token=" + data.access_token
-  );
+res.status(200).json(data);
 }
