@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perception of Listening</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -16,56 +19,54 @@ body {
   background: #000;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   text-align: center;
-  padding: 20px 24px 40px;
+  padding: 0 24px 40px;
 }
 
 main {
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
 }
 
-.hero-image {
-  width: 100%;
-  margin: 0 auto 50px;
-}
-
-.hero-image img {
+.hero {
   width: 100%;
   display: block;
+  margin-bottom: 80px;
 }
 
 #day {
-  font-size: clamp(2rem, 6vw, 3rem);
-  margin-bottom: 5px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(6rem, 18vw, 12rem);
+  letter-spacing: 0.03em;
+  line-height: 0.9;
+  margin-bottom: 10px;
 }
 
 #project-label {
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
-  letter-spacing: 0.2em;
-  opacity: 0.8;
-  margin-bottom: 60px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  letter-spacing: 0.35em;
+  opacity: 0.75;
+  margin-bottom: 90px;
 }
 
 #label {
   display: block;
   font-size: clamp(0.8rem, 2vw, 1.2rem);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   opacity: 0.8;
 }
 
 #track {
   display: block;
-  margin-top: 8px;
-  font-size: clamp(1rem, 4vw, 1.6rem);
+  margin-top: 12px;
+  font-size: clamp(1.4rem, 4vw, 2rem);
 }
 
 #source {
-  margin-top: 5px;
-  font-size: clamp(0.65rem, 2vw, 0.85rem);
+  margin-top: 10px;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
   letter-spacing: 0.08em;
   opacity: 0.55;
 }
@@ -74,33 +75,29 @@ main {
   width: 160px;
   height: 1px;
   background: rgba(255,255,255,0.18);
-  margin: 40px auto;
+  margin: 80px auto;
 }
 
 #structure {
-  margin-top: 15px;
-  margin-bottom: 8px;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 3vw, 1.4rem);
   font-weight: 700;
   letter-spacing: 0.05em;
-  line-height: 1.8;
+  line-height: 1.9;
+  margin-bottom: 50px;
 }
 
 #installation {
   max-width: 850px;
   margin: 0 auto;
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
   line-height: 1.9;
   color: rgba(255,255,255,0.75);
 }
 
 #installation p {
-  margin: 0 0 24px;
+  margin-bottom: 28px;
 }
 
-#installation p:last-child {
-  margin-bottom: 0;
-}
 </style>
 </head>
 
@@ -108,50 +105,51 @@ main {
 
 <main>
 
-  <div class="hero-image">
-    <img src="images/hero.jpg" alt="Perception of Listening">
-  </div>
+<img src="images/hero.jpg" alt="Perception of Listening" class="hero">
 
-  <div id="day"></div>
+<div id="day"></div>
 
-  <div id="project-label">OF THE PROJECT</div>
+<div id="project-label">OF THE PROJECT</div>
 
-  <div id="nowplaying">
-    <span id="label">LISTENING NOW</span>
-    <span id="track">loading...</span>
-  </div>
+<div id="nowplaying">
+  <span id="label">LISTENING NOW:</span>
+  <span id="track">loading...</span>
+</div>
 
-  <div id="source">live listening data from Spotify</div>
+<div id="source">live listening data from Spotify</div>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div id="structure">
-    <div>1 PANEL = 1 DAY OF THE PROJECT</div>
-    <div>1 PYRAMID = 1 HOUR OF LISTENING</div>
-  </div>
+<div id="structure">
+  <div>1 PANEL = 1 DAY OF THE PROJECT</div>
+  <div>1 PYRAMID = 1 HOUR OF LISTENING</div>
+</div>
 
-  <div id="installation">
-    <p>
-      Listening data is transformed into an installation composed of epoxy resin panels.
-    </p>
+<div id="installation">
 
-    <p>
-      Each panel represents one day of the project. The panels contain pyramids corresponding to individual hours of listening. The height of each pyramid reflects the number of minutes listened during that hour.
-    </p>
+  <p>
+    Listening data is transformed into an installation composed of epoxy resin panels.
+  </p>
 
-    <p>
-      The installation expands continuously as new listening data is generated.
-    </p>
-  </div>
+  <p>
+    Each panel represents one day of the project. The panels contain pyramids corresponding to individual hours of listening. The height of each pyramid reflects the number of minutes listened during that hour.
+  </p>
+
+  <p>
+    The installation expands continuously as new listening data is generated.
+  </p>
+
+</div>
 
 </main>
 
 <script>
+
 const startDate = new Date(2026, 2, 10);
 const today = new Date();
 
-startDate.setHours(0, 0, 0, 0);
-today.setHours(0, 0, 0, 0);
+startDate.setHours(0,0,0,0);
+today.setHours(0,0,0,0);
 
 const oneDay = 1000 * 60 * 60 * 24;
 const diffDays = Math.round((today - startDate) / oneDay) + 1;
@@ -160,21 +158,24 @@ document.getElementById("day").textContent = "DAY " + diffDays;
 
 async function getNowPlaying() {
   try {
+
     const response = await fetch("/api/now-playing");
     const data = await response.json();
 
-    document.getElementById("label").textContent =
-      data.label || "LISTENING NOW";
-
     document.getElementById("track").textContent =
       data.track || "unavailable";
-  } catch (error) {
-    document.getElementById("track").textContent = "unavailable";
+
+  } catch {
+
+    document.getElementById("track").textContent =
+      "unavailable";
+
   }
 }
 
 getNowPlaying();
 setInterval(getNowPlaying, 30000);
+
 </script>
 
 </body>
