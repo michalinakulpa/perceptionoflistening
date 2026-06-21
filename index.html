@@ -35,20 +35,25 @@ main {
   margin-bottom: 40px;
 }
 
+.day-block {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 50px;
+}
+
 #day {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 9vw, 5rem);
-  letter-spacing: 0.03em;
+  font-size: clamp(3.5rem, 11vw, 6rem);
+  letter-spacing: 0.02em;
   line-height: 0.9;
-  margin-bottom: 0;
+  margin-bottom: -6px;
 }
 
 #project-label {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1rem, 3vw, 1.5rem);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   opacity: 0.75;
-  margin-bottom: 50px;
 }
 
 #label {
@@ -112,10 +117,9 @@ main {
 
 <img src="images/hero.jpg" alt="Perception of Listening" class="hero">
 
-<div id="day"></div>
-
-<div id="project-label">
-OF THE PROJECT
+<div class="day-block">
+  <div id="day"></div>
+  <div id="project-label">OF THE PROJECT</div>
 </div>
 
 <div id="nowplaying">
